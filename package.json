@@ -1,0 +1,32 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "main": "index.js",
+  "engines": {
+    "node": "20.11.1",
+    "npm": "10.8.2"
+  },
+  "scripts": {
+    "client-install": "npm install --prefix ../client",
+    "serve": "nodemon server.js",
+    "client": "npm start --prefix ../client",
+    "dev": "concurrently \"npm run serve\" \"npm run client\"",
+    "start": "node server.js",
+    "create-admin": "node createAdmin.js",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix ../client && npm run build --prefix client"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "axios": "^1.10.0",
+    "cheerio": "^1.1.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongoose": "^8.6.4",
+    "multer": "^2.0.2",
+    "nodemailer": "^7.0.5",
+    "nodemon": "^3.1.7",
+    "puppeteer": "^24.14.0"
+  }
+}
