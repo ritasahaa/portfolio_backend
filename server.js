@@ -43,12 +43,13 @@ app.use("/api/contact", contactRoute);
 
 const port = process.env.PORT || 5000;
 
-if (process.env.NODE_ENV === "production") {
-    app.use(express.static(path.join(__dirname, "client/build")));
-    app.get("*", (req, res) => {
-        res.sendFile(path.join(__dirname, "client/build", "index.html"));
-    });
-}
+// If deploying backend and frontend separately, do NOT serve React build from backend
+// if (process.env.NODE_ENV === "production") {
+//     app.use(express.static(path.join(__dirname, "client/build")));
+//     app.get("*", (req, res) => {
+//         res.sendFile(path.join(__dirname, "client/build", "index.html"));
+//     });
+// }
 
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
