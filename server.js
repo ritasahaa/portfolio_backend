@@ -10,11 +10,12 @@ const app = express();
 
 // Add CORS middleware to fix network errors
 app.use((req, res, next) => {
-    // Allow requests from both localhost (dev) and Render (prod)
+    // Allow requests from localhost, Render, and Netlify frontend
     const allowedOrigins = [
         'http://localhost:3000',
-        'https://portfolio-frontend-*.onrender.com', // wildcard for Render frontend if used
-        'https://portfolio-backend-qszc.onrender.com' // allow self-origin for server-to-server
+        'https://portfolio-frontend-*.onrender.com',
+        'https://portfolio-backend-qszc.onrender.com',
+        'https://portfoliofullstak.netlify.app' // Netlify frontend
     ];
     const origin = req.headers.origin;
     if (allowedOrigins.includes(origin) || origin?.endsWith('.onrender.com')) {
