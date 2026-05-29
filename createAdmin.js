@@ -2,8 +2,8 @@ const User = require('./models/userModel');
 const mongoose = require('mongoose');
 require('dotenv').config();
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URL || 'mongodb://localhost:27017/portfolio')
+// Connect to MongoDB (use same `mongo_url` env var as the app)
+mongoose.connect(process.env.mongo_url || process.env.MONGO_URL || 'mongodb://localhost:27017/portfolio')
     .then(() => {
         console.log('Connected to MongoDB');
         createDefaultAdmin();
